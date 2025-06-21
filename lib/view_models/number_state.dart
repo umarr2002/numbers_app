@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:numbers/models/local_model.dart';
-import 'package:numbers/models/number_fact.dart'; // если у тебя такая модель
+import 'package:numbers/models/number_fact.dart';
 
 part 'number_state.freezed.dart';
 
