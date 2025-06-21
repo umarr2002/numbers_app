@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:isar/isar.dart';
 
-import '../lib.dart';
+import '../../lib.dart';
 
 class NumberLocalService {
   List<LocalModel> currentNumbers = [];

@@ -1,17 +1,16 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:numbers/repos/number_repos.dart';
 import '../lib.dart';
 
 class NumberBloc extends Bloc<NumberEvent, NumberState> {
-  final NumbersApiService apiService;
-  final NumberLocalService localService;
+  final NumberRepos numberRepos;
 
-  NumberBloc(this.apiService, this.localService)
-      : super(const NumberState.initial()) {
+  NumberBloc(this.numberRepos) : super(const NumberState.initial()) {
     on<NumberEvent>((event, emit) async {
       await event.when(
         getInputtedNumbers: (type, input) async {
           emit(const NumberState.loading());
-          final result = await apiService.getNumber(
+          final result = await numberRepos.getNumber(
             type: type,
             input: input,
           );
@@ -24,7 +23,7 @@ class NumberBloc extends Bloc<NumberEvent, NumberState> {
         },
         getRandomNumbers: () async {
           emit(const NumberState.loading());
-          final result = await apiService.getRandomNumber();
+          final result = await numberRepos.getRandomNumber();
           result.fold(
             (failure) => emit(
               NumberState.error(failure),
@@ -36,7 +35,7 @@ class NumberBloc extends Bloc<NumberEvent, NumberState> {
         },
         addNumberToLocal: (text, number) async {
           emit(const NumberState.loading());
-          final result = await localService.addLocalNumber(
+          final result = await numberRepos.addNumberToLocal(
             text: text,
             number: number,
           );
@@ -47,7 +46,7 @@ class NumberBloc extends Bloc<NumberEvent, NumberState> {
         },
         getLocalNumbers: () async {
           emit(const NumberState.loading());
-          final result = await localService.getNumbers();
+          final result = await numberRepos.getLocalNumbers();
           result.fold(
             (failure) => emit(
               NumberState.localError(failure),
