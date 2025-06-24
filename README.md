@@ -1,16 +1,1 @@
-# numbers
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Для разработки данного проекта использована BLOC стейт менежмент и MVVM архитектура (с перва хотел использвать Clean architecture но это задание слишком проста поэтому выбрал MVVM). А также использовано для работы с зависимостями GET IT, для генерации моделей использовано json_serializable и еще для упрощения работы с блоком использовано freezed. Для кеширования данных использовано isar и есть некоторые полезные зависимости как dartz, equatable и.тд
